@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f7b8ff, #b8e4ff);
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+
+  .cart-logo,
+  .home-logo {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .cart-logo:hover,
+  .home-logo:hover {
+    transform: scale(1.15);
+  }
+
+  .nav-center select {
+    background: rgba(255, 255, 255, 0.7);
+    border: 2px solid #fff;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 1rem;
+    color: #333;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .nav-center select:hover {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 10px #ffb6f9;
+  }
+
+  section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    transition: background 0.5s ease;
+    text-align: center;
+    color: #fff;
+    padding: 30px;
+  }
+
+  #cakes {
+    background: linear-gradient(135deg, #ffc2e2, #7563d8);
+  }
+
+  #coffees {
+    background: linear-gradient(135deg, #eebf99, #ca7743);
+  }
+
+  #drinks {
+    background: linear-gradient(135deg, #afe2f7, #64b4ff);
+  }
+
+  #desserts {
+    background: linear-gradient(135deg, #cdb0f3, #f777c2);
+  }
+
+h1{
+    font-family: lucida handwriting;
+    font-style: oblique;
+    color: #c92b2b;
+    text-shadow: 0 0 10px #333;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+  gap: 10px;
+  width: 90%;
+  height: 90vh;
+  padding: 10px;
+  margin-left: 60px;
+  transition: 0.3s ease;
+}
+    
+.div1 {
+    grid-column: span 2 / span 2;
+    grid-row: span 2 / span 2;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.4s ease;
+  height: auto;
+  width: auto;
+}
+
+.div2 {
+    grid-column: span 2 / span 2;
+    grid-row: span 3 / span 3;
+    grid-column-start: 3;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.4s ease;
+  height: auto;
+  width: auto;
+}
+
+.div3 {
+    grid-column: span 2 / span 2;
+    grid-row: span 3 / span 3;
+    grid-column-start: 1;
+    grid-row-start: 3;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.div4 {
+    grid-column: span 2 / span 2;
+    grid-row: span 2 / span 2;
+    grid-column-start: 1;
+    grid-row-start: 6;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.div5 {
+    grid-column: span 3 / span 3;
+    grid-row: span 4 / span 4;
+    grid-column-start: 3;
+    grid-row-start: 4;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.div6 {
+    grid-column: span 2 / span 2;
+    grid-row: span 3 / span 3;
+    grid-column-start: 5;
+    grid-row-start: 1;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.div7 {
+    grid-column: span 3 / span 3;
+    grid-row: span 2 / span 2;
+    grid-column-start: 6;
+    grid-row-start: 4;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.div8 {
+    grid-column: span 2 / span 2;
+    grid-row: span 2 / span 2;
+    grid-column-start: 6;
+    grid-row-start: 6;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.div9 {
+    grid-column: span 3 / span 3;
+    grid-row: span 2 / span 2;
+    grid-column-start: 8;
+    grid-row-start: 6;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.div10 {
+    grid-column: span 4 / span 4;
+    grid-row: span 3 / span 3;
+    grid-column-start: 7;
+    grid-row-start: 1;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.div11 {
+    grid-column: span 2 / span 2;
+    grid-row: span 2 / span 2;
+    grid-column-start: 9;
+    grid-row-start: 4;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.parent.fade div {
+  opacity: 0.3;
+  filter: blur(3px);
+  pointer-events: none;
+}
+
+.parent.fade .active {
+  opacity: 1;
+  filter: none;
+  pointer-events: auto;
+}
+
+.active {
+  position: absolute !important;
+  top: 50%;
+  left: 50%;
+  width: 60%;
+  height: 70%;
+  transform: translate(-50%, -50%) scale(1.05);
+  z-index: 10;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
+  border-radius: 25px;
+}
+p{
+    text-align: center;
+    font-family: lucida handwriting;
+    font-weight: 600;
+    color: #440101;
+    font-size: 20px;
+    margin-top: 10px;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);   
+}
+
+.info {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    text-align: center;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 1;
+    visibility: visible;
+    z-index: 5;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(6px);
+    padding: 10px 14px;
+    border-radius: 12px;
+    transition: opacity 0.4s ease, bottom 0.4s ease;
+  }
+  
+  .buy-btn {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #fd9fe9, #8c97ff);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .buy-btn:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #ff71dc, #5b69eb);
+  }
+  
+  .cake.active .info {
+    opacity: 1;
+    visibility: visible;
+    bottom: 35px;
+  }
+
+  

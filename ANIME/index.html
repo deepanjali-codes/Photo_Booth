@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+
+    <title>Anime Gallery</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #41191d, #7a262c);
+            color: #fff;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 40px;
+            min-height: 100vh;
+            gap: 24px;
+        }
+        .gallery{
+            background: linear-gradient(135deg, #1b2c4b, #527092);
+            border-radius: 16px;
+            box-shadow: 0 6px 24px rgba(243, 133, 238, 0.5);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 280px;
+            cursor: pointer;
+        }
+        .gallery:hover {
+            transform: scale(1.07) rotate(-2deg);
+            box-shadow: 0 10px 36px rgba(255, 103, 103, 0.8);
+        }
+        .gallery img{
+            display: block;
+            opacity: 0.88;
+            filter: drop-shadow(0 0 12px #a8a8a8);
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: opacity 0.6s ease, filter 0.3s ease;
+        }
+        .gallery img:hover {
+            filter: drop-shadow(0 0 12px #5f4b4b);
+        }
+        .gallery a{
+            display: block;
+            position: relative;
+            text-decoration: none;
+            color: inherit;
+        }
+        .gallery a::after {
+            content: '';
+            position: absolute;
+            top: 0; bottom: 0;
+            left: 0; right: 0;
+            background: rgba(255, 255, 255, 0.23);
+            backdrop-filter: blur(4px);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 2;
+        }
+        .gallery a:hover::after {
+            opacity: 1;
+        }
+        .gallery:hover img {
+            opacity: 1;
+            filter: drop-shadow(0 0 16px #b67fff);
+        }
+        .desc{
+            padding: 18px 15px;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 700;
+            background: rgba(0, 0, 0, 0.13);
+            user-select: none;
+            opacity: 0.89;
+            line-height: 1.35;
+            transition: background 0.3s ease, opacity 0.3s ease;
+        }
+        .gallery:hover .desc {
+            background: rgba(0, 0, 0, 0.23);
+            opacity: 1;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 16px;
+                gap: 16px;
+            }
+            .gallery {
+                width: 180px;
+            }
+        }
+        h3{
+            font-size: 24px;
+            font-family: monospace;
+            color: rgb(0, 0, 0);
+            margin: 0 0 8px 0;
+        }
+    </style>
+  </head>
+  <body>
+    <nav style="width: 100%; text-align: center; margin-bottom: 20px;">
+        <h1 style="font-size: 2.5rem; margin: 0; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.836); font-family: fantasy; color: rgb(136, 7, 14);">Anime Gallery</h1>
+    </nav>
+    <div class="gallery">
+        <a href="#">
+            <img src="https://upload.wikimedia.org/wikipedia/en/8/88/Uzumaki.jpg" alt="Anime 1">
+        </a>
+        <div class="desc"><h3>Uzumaki 🌀</h3>
+        Uzumaki really said “small town, big spooky vibes” 🌪️👀
+        Like babes, your walls literally spiraling rn 💅✨</div>
+    </div>
+
+    <div class="gallery">
+        <a href="#">
+            <img src="https://i.pinimg.com/736x/be/ef/6f/beef6fdc70c5c549a5ad42a09b6fc36d.jpg" alt="Anime 1">
+        </a>
+        <div class="desc"><h3>One Piece 👒</h3>
+        One Piece got us out here chasing dreams and found family like it’s a full-time job 🚢💎
+        Fr, Luffy just said “I’m rubber, you’re basic” and bounced on all haters!</div>
+    </div>
+
+    <div class="gallery">
+        <a href="#">
+            <img src="https://imgsrv.crunchyroll.com/cdn-cgi/image/fit=cover,format=auto,quality=85,width=1920/keyart/GRVN8MNQY-backdrop_wide" alt="Anime 1">
+        </a>
+        <div class="desc"><h3>Classroom of Elite 🎓</h3>
+        “genius main character in a toxic gifted kids club” 😏
+        Survival of the fakest—trust no one, and slay those exams, period 💅📚</div>
+    </div>
+
+    <div class="gallery">
+        <a href="#">
+            <img src="https://i.pinimg.com/736x/73/01/bc/7301bc6c1f8913fb8e86ff4a903032f7.jpg" alt="Anime 1">
+        </a>
+        <div class="desc"><h3>K-project</h3>
+        “mood swings but make it supernatural” 💙🔥
+        Whole squad got vibes, but trust issues? On max, bestie 👑</div>
+    </div>
+
+    <div class="gallery">
+        <a href="#">
+            <img src="https://m.media-amazon.com/images/M/MV5BYTc5NGRmOWUtZTgzYi00MTI0LTg4OWEtOTFlNmEwZDBiODQ3XkEyXkFqcGc@._V1_QL75_UX190_CR0,24,190,281_.jpg" alt="Anime 1">
+        </a>
+        <div class="desc"><h3>Ranma ½ 🐱‍👤</h3>
+        Guy turns into girl with cold water, chaos and fights everywhere 💦🥊
+        Engaged to a fierce tomboy—love, battles, and endless drama, period 💥❤️
+</div>
+    </div>
+
+    <div class="gallery">
+        <a href="#">
+            <img src="https://anime1introduction.up.seesaa.net/image/5e96cafdcbacc_6e67147faafc2f8811155a999046615b.jpg" alt="Anime 1">
+        </a>
+        <div class="desc"><h3>Re:Zero ⭕</h3>
+        “jumped to fantasy world, keeps dying but makes a comeback” 🔄💀
+        Subaru’s grind is real—reset button vibes but still catching feels for queen Emilia 👑💔
+</div>
+    </div>
+
+    <div class="gallery">
+        <a  href="#">
+            <img src="https://media.printler.com/media/photo/136916.jpg?rmode=crop&width=638&height=900" alt="Anime 1">
+        </a>
+        <div class="desc"><h3>Vinland Saga 🌾</h3>
+        Kid turned savage Viking for revenge, then tries peace vibes ⚔️✌️
+        From blood and battles to farming goals—Thorfinn’s glow-up is next level 🔥</div>
+    </div>
+
+    <div class="gallery">
+        <a  href="#">
+            <img src="https://gallery.poskota.co.id/Foto/6-karakter-yang-sangat-dinantikan-dalam-anime-dandadan-season-2.jpg" alt="Anime 1">
+        </a>
+        <div class="desc"><h3>Dandadan 👽</h3>
+        Ghost believer meets alien believer, powers unlocked, chaos ensues 👻✨
+        Squad’s battling spirits, aliens, and curses while lowkey shipping and keepin’ it wild 🔥</div>
+    </div>
+    <div class="gallery">
+        <a  href="#">
+            <img src="https://blob.cede.ch/catalog/16484000/16484877_1_92.jpg?v=1" alt="Anime 1">
+        </a>
+        <div class="desc"><h3>Mob Psycho 100 👻</h3>
+        Shy psychic teen trying to live his best low-key life, but powers be wild! 🌪️✨
+        Mob’s out here leveling up emotionally and psychically—big mood, big growth 📈💖</div>
+    </div>
+    <div class="gallery">
+        <a  href="#">
+            <img src="https://upload.wikimedia.org/wikipedia/en/7/72/Bleachanime.png" alt="Anime 1">
+        </a>
+        <div class="desc"><h3>Bleach ⚔️</h3>
+         “Ichigo out here stealing soul powers like it’s no big deal” ⚡
+        Hollows got him throwing shade and swords—Soul Society ain’t ready for this boss energy 🔥👊
+        </div>
+    </div>
+    <div class="gallery">
+        <a  href="#">
+            <img src="https://w0.peakpx.com/wallpaper/664/651/HD-wallpaper-tokyo-revengers-toman.jpg" alt="Anime 1">
+        </a>
+        <div class="desc"><h3>Tokyo Revengers ⏳</h3> 
+        “time-traveling to fix my messy life” ⏰💥 
+        Takemichi’s out here trying to save his ex and squad from drama—gang vibes but make it emotional 💔👊 </div> 
+    </div>
+    <div class="gallery">
+        <a  href="#">
+            <img src="https://sm.ign.com/t/ign_fr/screenshot/default/bsd-s2_5yn6.1280.jpg" alt="Anime 1">
+        </a>
+        <div class="desc"><h3>Bungo Stray Dogs 🐯</h3>
+        “detective agency with supernatural powers” 🕵️‍♂️✨
+        Atsushi’s out here finding himself and fighting mafia vibes—literally a whole mood 📚🔥</div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commission_Calculator</title>
+    <style>
+      form{
+        border: 3px #9f0d0d;
+        border-radius: 16px;
+        padding: 32px;
+        box-shadow: 0 6px 18px rgba(255, 139, 139, 0.1);
+        width: 400px;
+        margin: 36px auto;
+        transition: border-color 0.16s, box-shadow 0.16s;
+      }
+      form:hover{
+        border-color: #1139e7;
+        box-shadow: 0 20px 40px rgba(37, 138, 240, 0.12);
+      }
+      p{
+        font-size: 1.8em;
+        font-family: monospace;
+        color: rgb(134, 6, 6);
+      }
+      form input{
+        width: 100%;
+        font-size: 1.2em;
+        box-shadow: 0 1px 2px #b5b5eb;
+      }
+      button{
+        background: #b0bbf3;
+        border: none;
+        cursor: pointer;
+        font-size: 15px;
+        box-shadow: 0 4px 16px rgb(237, 181, 181);
+        transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+      }
+      button:hover{
+        background: #ea5757;
+        box-shadow: 0 8px 24px rgb(133, 145, 239);
+        transform: scale(1.06);
+      }
+    </style>
+</head>
+<body>
+    <script>
+     function add(){
+        var n1= parseInt(document.frm.n1.value)
+        if (n1 == 1000){
+            document.frm.result.value="0% commission"
+        }
+        else if(n1>1001 && n1<=10000){
+            var commission = n1*0.03;
+        document.frm.result.value="₹" + commission.toFixed(2) + " Commission";
+        }
+         else if(n1>10001 && n1 <= 50000){
+            var commission = n1*0.06;
+        document.frm.result.value="₹" + commission.toFixed(2) + " Commission";
+        }
+         else if(n1<50001 && n1 <= 100000){
+            var commission = n1*0.09;
+        document.frm.result.value="₹" + commission.toFixed(2) + " Commission";
+        }
+         else if(n1<100001 && n1 <= 150000){
+            var commission = n1*0.12;
+        document.frm.result.value="₹" + commission.toFixed(2) + " Commission";
+        }
+         else if(n1<150001 && n1 <=200000){
+            var commission = n1*0.15;
+        document.frm.result.value="₹" + commission.toFixed(2) + " Commission";
+        }
+     }
+    </script>
+
+    <form name="frm">
+        <p>Enter the gained amount: <input type="number" name="n1" required>
+        </p>
+        <p><input type="text" name="result" readonly></p>
+
+        <button type="button" onclick="add()">Calculate</button>     
+    </form>
+</body>
+</html>
