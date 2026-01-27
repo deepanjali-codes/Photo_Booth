@@ -1,4 +1,4 @@
-#📸 Photo_Booth
+# 📸 Photo_Booth
 
 click. pose. slay. repeat.
 
@@ -7,7 +7,7 @@ No downloads. No filters from 2012. Just clean UI and camera magic.
 
 Built for fun. Styled for aesthetics. Powered by JS.
 
-##🪩 What it does (aka the flex)
+## 🪩 What it does (aka the flex)
 
 ✨ Opens your camera in-browser
 📸 Captures photos in real time
@@ -27,7 +27,7 @@ Basically: Instagram energy, developer edition.
 
 Vanilla only. Because we’re built different.
 
-##🎨 Design Vibes
+## 🎨 Design Vibes
 
 Soft colors
 
