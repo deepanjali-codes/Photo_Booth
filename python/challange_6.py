@@ -1,7 +1,7 @@
 import turtle
 import random
 
-import colorgram
+import colorgram # type: ignore
 
 colors = colorgram.extract("rahel.jpg", 30)
 
