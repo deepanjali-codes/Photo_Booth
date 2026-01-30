@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ee710169-0bea-4a3f-a603-b319f37a5aaf" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../Coding /.gitattributes" afterPathEscaped="$PROJECT_DIR$/../.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /.github/copilot-instructions.md" afterPathEscaped="$PROJECT_DIR$/../.github/copilot-instructions.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /.vscode/settings.json" afterPathEscaped="$PROJECT_DIR$/../.vscode/settings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /ANIME/index.html" afterPathEscaped="$PROJECT_DIR$/../ANIME/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Cake_Asethetics/Berry Queen.jpg" afterPathEscaped="$PROJECT_DIR$/../Cake_Asethetics/Berry Queen.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Cake_Asethetics/Blueberry Velvet.jpg" afterPathEscaped="$PROJECT_DIR$/../Cake_Asethetics/Blueberry Velvet.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Cake_Asethetics/Caramel Cloud.jpg" afterPathEscaped="$PROJECT_DIR$/../Cake_Asethetics/Caramel Cloud.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Cake_Asethetics/Classic Vanilla Bliss.jpg" afterPathEscaped="$PROJECT_DIR$/../Cake_Asethetics/Classic Vanilla Bliss.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Cake_Asethetics/Lemon Zest Burst.jpg" afterPathEscaped="$PROJECT_DIR$/../Cake_Asethetics/Lemon Zest Burst.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Cake_Asethetics/Midnight Mocha.jpg" afterPathEscaped="$PROJECT_DIR$/../Cake_Asethetics/Midnight Mocha.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Cake_Asethetics/Pink Frost Heaven.jpg" afterPathEscaped="$PROJECT_DIR$/../Cake_Asethetics/Pink Frost Heaven.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Cake_Asethetics/Rainbow Whip Dream.jpg" afterPathEscaped="$PROJECT_DIR$/../Cake_Asethetics/Rainbow Whip Dream.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Cake_Asethetics/Red Velvet.jpg" afterPathEscaped="$PROJECT_DIR$/../Cake_Asethetics/Red Velvet.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Cake_Asethetics/Strawberry Fantasy.jpg" afterPathEscaped="$PROJECT_DIR$/../Cake_Asethetics/Strawberry Fantasy.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Cake_Asethetics/americano.jpg" afterPathEscaped="$PROJECT_DIR$/../Cake_Asethetics/americano.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Cake_Asethetics/boba.jpg" afterPathEscaped="$PROJECT_DIR$/../Cake_Asethetics/boba.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Cake_Asethetics/espresso.jpg" afterPathEscaped="$PROJECT_DIR$/../Cake_Asethetics/espresso.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Cake_Asethetics/filter coffee.jpg" afterPathEscaped="$PROJECT_DIR$/../Cake_Asethetics/filter coffee.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Cake_Asethetics/flate white.jpg" afterPathEscaped="$PROJECT_DIR$/../Cake_Asethetics/flate white.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Cake_Asethetics/frappuccino.jpg" afterPathEscaped="$PROJECT_DIR$/../Cake_Asethetics/frappuccino.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Cake_Asethetics/hot chocolate.jpg" afterPathEscaped="$PROJECT_DIR$/../Cake_Asethetics/hot chocolate.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Cake_Asethetics/iced tea.jpg" afterPathEscaped="$PROJECT_DIR$/../Cake_Asethetics/iced tea.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Cake_Asethetics/icon.gif" afterPathEscaped="$PROJECT_DIR$/../Cake_Asethetics/icon.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Cake_Asethetics/index.html" afterPathEscaped="$PROJECT_DIR$/../Cake_Asethetics/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Cake_Asethetics/latte.jpg" afterPathEscaped="$PROJECT_DIR$/../Cake_Asethetics/latte.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Cake_Asethetics/matcha.jpg" afterPathEscaped="$PROJECT_DIR$/../Cake_Asethetics/matcha.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Cake_Asethetics/menu.css" afterPathEscaped="$PROJECT_DIR$/../Cake_Asethetics/menu.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Cake_Asethetics/menu.html" afterPathEscaped="$PROJECT_DIR$/../Cake_Asethetics/menu.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Cake_Asethetics/menu_script.js" afterPathEscaped="$PROJECT_DIR$/../Cake_Asethetics/menu_script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Cake_Asethetics/mocha.jpg" afterPathEscaped="$PROJECT_DIR$/../Cake_Asethetics/mocha.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Cake_Asethetics/shop.html" afterPathEscaped="$PROJECT_DIR$/../Cake_Asethetics/shop.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Cake_Asethetics/style.css" afterPathEscaped="$PROJECT_DIR$/../Cake_Asethetics/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Coding .code-workspace" afterPathEscaped="$PROJECT_DIR$/../Coding 🤖.code-workspace" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Minecraft/0d6638f29fe6ee2c41f2c1c90236bbe1.jpg" afterPathEscaped="$PROJECT_DIR$/../Minecraft/0d6638f29fe6ee2c41f2c1c90236bbe1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Minecraft/5e8deba49b03d0e4f8fcd8b025973034.jpg" afterPathEscaped="$PROJECT_DIR$/../Minecraft/5e8deba49b03d0e4f8fcd8b025973034.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Minecraft/6ef25c1df6cb56e034922712f25b290f.jpg" afterPathEscaped="$PROJECT_DIR$/../Minecraft/6ef25c1df6cb56e034922712f25b290f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Minecraft/index.html" afterPathEscaped="$PROJECT_DIR$/../Minecraft/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Minecraft/script.js" afterPathEscaped="$PROJECT_DIR$/../Minecraft/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /Minecraft/style.css" afterPathEscaped="$PROJECT_DIR$/../Minecraft/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /blah/WEBSITE.HTML" afterPathEscaped="$PROJECT_DIR$/../blah/WEBSITE.HTML" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /blah/commission_calculator.html" afterPathEscaped="$PROJECT_DIR$/../blah/commission_calculator.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /blah/index.html" afterPathEscaped="$PROJECT_DIR$/../blah/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/.idea/.gitignore" afterPathEscaped="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/.idea/inspectionProfiles/profiles_settings.xml" afterPathEscaped="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/.idea/modules.xml" afterPathEscaped="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/.idea/runConfigurations/hello.xml" afterPathEscaped="$PROJECT_DIR$/.idea/runConfigurations/hello.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/.idea/spiral.py.iml" afterPathEscaped="$PROJECT_DIR$/.idea/spiral.py.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/07_loop.py" afterPathEscaped="$PROJECT_DIR$/07_loop.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/123.py" afterPathEscaped="$PROJECT_DIR$/123.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/Game_Arcade.py" afterPathEscaped="$PROJECT_DIR$/Game_Arcade.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/I_wanna_dance.py" afterPathEscaped="$PROJECT_DIR$/I_wanna_dance.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/TicTacToe.py" afterPathEscaped="$PROJECT_DIR$/TicTacToe.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/challange_3.py" afterPathEscaped="$PROJECT_DIR$/challange_3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/challange_4.py" afterPathEscaped="$PROJECT_DIR$/challange_4.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/challange_5.py" afterPathEscaped="$PROJECT_DIR$/challange_5.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/challange_6.py" afterPathEscaped="$PROJECT_DIR$/challange_6.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/challange_7.py" afterPathEscaped="$PROJECT_DIR$/challange_7.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/challange_8.py" afterPathEscaped="$PROJECT_DIR$/challange_8.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/christmas_tree.py" afterPathEscaped="$PROJECT_DIR$/christmas_tree.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/download.jfif" afterPathEscaped="$PROJECT_DIR$/download.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/exam.py" afterPathEscaped="$PROJECT_DIR$/exam.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/functions.py" afterPathEscaped="$PROJECT_DIR$/functions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/hello.py" afterPathEscaped="$PROJECT_DIR$/hello.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/main.py" afterPathEscaped="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/numpy.ipynb" afterPathEscaped="$PROJECT_DIR$/numpy.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/odd&amp;even.py" afterPathEscaped="$PROJECT_DIR$/odd&amp;even.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/practical Q1_a.py" afterPathEscaped="$PROJECT_DIR$/practical Q1_a.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/rahel.jpg" afterPathEscaped="$PROJECT_DIR$/rahel.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/restrauant.py" afterPathEscaped="$PROJECT_DIR$/restrauant.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/spams.py" afterPathEscaped="$PROJECT_DIR$/spams.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/spiral.py" afterPathEscaped="$PROJECT_DIR$/spiral.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Coding /python/swapcases.py" afterPathEscaped="$PROJECT_DIR$/swapcases.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../Coding " />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="37atV3wNfjW41WqvgTKhxTPV9pB" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.challange_3.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "ai.playground.ignore.import.keys.banner.in.settings": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Coding 🤖/python",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="challange_3" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="spiral.py" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/challange_3.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PY-253.29346.142" />
+        <option value="bundled-python-sdk-f2b7a9f6281b-6e1f45a539f7-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.29346.142" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ee710169-0bea-4a3f-a603-b319f37a5aaf" name="Changes" comment="" />
+      <created>1767153029349</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1767153029349</updated>
+      <workItem from="1767153030843" duration="93000" />
+      <workItem from="1767933194257" duration="204000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
