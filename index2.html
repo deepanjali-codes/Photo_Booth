@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photo_Booth</title>
+
+    <style>
+      body {
+        background-color: rgb(250, 208, 204);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        text-align: center;
+      }
+
+      video {
+        border: 2px solid #000;
+        width: 500px;
+        height: 375px;
+      }
+
+      .controls {
+        margin-top: 15px;
+      }
+
+      .controls input {
+        padding: 5px;
+        width: 120px;
+      }
+
+      .controls button {
+        padding: 5px 20px;
+        cursor: pointer;
+        color: rgb(38, 11, 191);
+      }
+
+      #photos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      .photo {
+        margin: 10px;
+        position: relative;
+      }
+
+      .photo img {
+        width: 160px;
+        height: 120px;
+        border: 2px solid #333;
+      }
+
+      .photo button {
+        position: absolute;
+        bottom: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Capture your Moments!</h1>
+
+      <video autoplay id="video"></video>
+
+      <div class="controls">
+        <input type="number" min="0" placeholder="Timer (sec)" id="timer" />
+        <button id="capture-btn"><b>Click</b></button>
+      </div>
+
+      <div id="photos"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
