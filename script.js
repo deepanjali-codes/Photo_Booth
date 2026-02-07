@@ -1,12 +1,31 @@
+// ====== ELEMENTS ======
 const video = document.getElementById("video");
 const captureBtn = document.getElementById("capture-btn");
 const timerInput = document.getElementById("timer");
 const photosContainer = document.getElementById("photos");
+const filterSelect = document.getElementById("filter");
 
-navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
-  video.srcObject = stream;
-});
+// ====== CAMERA ACCESS ======
+navigator.mediaDevices
+  .getUserMedia({ video: true })
+  .then((stream) => {
+    video.srcObject = stream;
+  })
+  .catch((err) => {
+    console.error("Camera access denied:", err);
+  });
 
+// ====== FILTER LIVE PREVIEW ======
+let currentFilter = "none";
+
+if (filterSelect) {
+  filterSelect.addEventListener("change", () => {
+    currentFilter = filterSelect.value;
+    video.style.filter = currentFilter;
+  });
+}
+
+// ====== CAPTURE BUTTON ======
 captureBtn.addEventListener("click", () => {
   let timer = Number(timerInput.value);
 
@@ -30,14 +49,16 @@ captureBtn.addEventListener("click", () => {
   }
 });
 
+// ====== CAPTURE PHOTO ======
 function capturePhoto() {
   const canvas = document.createElement("canvas");
-  const context = canvas.getContext("2d");
+  const ctx = canvas.getContext("2d");
 
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
 
-  context.drawImage(video, 0, 0, canvas.width, canvas.height);
+  ctx.filter = currentFilter;
+  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
   const dataURL = canvas.toDataURL("image/png");
 
@@ -46,17 +67,20 @@ function capturePhoto() {
 
   const img = document.createElement("img");
   img.src = dataURL;
-  photoDiv.appendChild(img);
 
+  // ====== DOWNLOAD BUTTON ======
   const downloadBtn = document.createElement("button");
   downloadBtn.textContent = "Save";
-  downloadBtn.onclick = () => {
+  downloadBtn.addEventListener("click", () => {
     const a = document.createElement("a");
     a.href = dataURL;
     a.download = "photo.png";
+    document.body.appendChild(a);
     a.click();
-  };
+    document.body.removeChild(a);
+  });
 
+  photoDiv.appendChild(img);
   photoDiv.appendChild(downloadBtn);
   photosContainer.appendChild(photoDiv);
 }
