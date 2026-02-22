@@ -12,8 +12,6 @@ body {
 
 video {
   border: 2px solid #000;
-  width: 500px;
-  height: 375px;
 }
 
 .controls {
@@ -61,7 +59,33 @@ video {
 /* Filters applied to video */
 video {
   border: 2px solid #000;
-  width: 500px;
+  width: 440px;
   height: 375px;
   filter: none;
+}
+
+.viewer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.viewer img {
+  max-width: 80%;
+  max-height: 80%;
+  border: 10px solid white;
+  box-shadow: 0 0 30px rgba(255, 192, 203, 0.7);
+}
+
+#closeViewer {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
 }

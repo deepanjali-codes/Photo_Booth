@@ -3,14 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Capture</title>
+    <title>Select Frame</title>
+    <link rel="stylesheet" href="style2.css" />
   </head>
+
   <body>
-    <div class="container">
-      <h1></h1>
-      <div class="select">
-        <p>Select your Frame!</p>
+    <h1>Select Your Frame 💘</h1>
+
+    <div class="frames">
+      <div class="frame" onclick="selectFrame('frame1.png')">
+        <img src="frame1.png" />
+      </div>
+
+      <div class="frame" onclick="selectFrame('frame2.png')">
+        <img src="frame2.png" />
+      </div>
+
+      <div class="frame" onclick="selectFrame('frame3.png')">
+        <img src="frame3.png" />
+      </div>
+
+      <div class="frame" onclick="selectFrame('frame4.png')">
+        <img src="frame4.png" />
       </div>
     </div>
+
+    <button onclick="goToCamera()">Continue 📸</button>
+
+    <script>
+      let selectedFrame = null;
+
+      function selectFrame(frame) {
+        selectedFrame = frame;
+        localStorage.setItem("selectedFrame", frame);
+        alert("Frame selected 💖");
+      }
+
+      function goToCamera() {
+        if (!selectedFrame) {
+          alert("Please select a frame first 💔");
+          return;
+        }
+        window.location.href = "index2.html";
+      }
+    </script>
   </body>
 </html>
