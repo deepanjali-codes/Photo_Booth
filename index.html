@@ -3,49 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Select Frame</title>
+    <title>Photo Booth - Choose Your Frame 💖</title>
     <link rel="stylesheet" href="style2.css" />
   </head>
 
   <body>
-    <h1>Select Your Frame 💘</h1>
+    <h1>Pick a Vibe 📸</h1>
 
     <div class="frames">
-      <div class="frame" onclick="selectFrame('frame1.png')">
-        <img src="frame1.png" />
+      <div class="frame" onclick="selectFrame(this, 'frame1.png')">
+        <img src="frame1.png" alt="Frame 1" />
       </div>
 
-      <div class="frame" onclick="selectFrame('frame2.png')">
-        <img src="frame2.png" />
+      <div class="frame" onclick="selectFrame(this, 'frame2.png')">
+        <img src="frame2.png" alt="Frame 2" />
       </div>
 
-      <div class="frame" onclick="selectFrame('frame3.png')">
-        <img src="frame3.png" />
+      <div class="frame" onclick="selectFrame(this, 'frame3.png')">
+        <img src="frame3.png" alt="Frame 3" />
       </div>
 
-      <div class="frame" onclick="selectFrame('frame4.png')">
-        <img src="frame4.png" />
+      <div class="frame" onclick="selectFrame(this, 'frame4.png')">
+        <img src="frame4.png" alt="Frame 4" />
       </div>
     </div>
 
-    <button onclick="goToCamera()">Continue 📸</button>
+    <button id="continue-btn" onclick="goToCamera()">Continue to Slay 📸</button>
 
     <script>
       let selectedFrame = null;
 
-      function selectFrame(frame) {
+      function selectFrame(element, frame) {
+        // Remove selected class from all frames
+        document.querySelectorAll('.frame').forEach(f => f.classList.remove('selected'));
+        
+        // Add selected class to clicked frame
+        element.classList.add('selected');
+        
         selectedFrame = frame;
         localStorage.setItem("selectedFrame", frame);
-        alert("Frame selected 💖");
       }
 
       function goToCamera() {
         if (!selectedFrame) {
-          alert("Please select a frame first 💔");
+          alert("Bestie, you need to pick a frame first! 💘");
           return;
         }
         window.location.href = "index2.html";
       }
+
+      // Restore selection if exists
+      window.onload = () => {
+        const saved = localStorage.getItem("selectedFrame");
+        if (saved) {
+          const frameImg = document.querySelector(`.frame img[src="${saved}"]`);
+          if (frameImg) {
+            selectFrame(frameImg.parentElement, saved);
+          }
+        }
+      };
     </script>
   </body>
 </html>

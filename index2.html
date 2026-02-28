@@ -1,45 +1,61 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Photo_Booth</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
 
-  <body>
-    <div class="container">
-      <h1>Capture your Moments!</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photo Booth - Capture the Magic ✨</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-      <video autoplay id="video"></video>
+<body>
+  <div id="flash-overlay" class="flash"></div>
 
-      <div class="controls">
-        <input type="number" min="0" placeholder="Timer (sec)" id="timer" />
-        <button id="capture-btn"><b>Click</b></button>
-      </div>
+  <div class="container">
+    <h1>Capture the Magic ✨</h1>
 
-      <div class="controls">
-        <select id="filter">
-          <option value="none">No Filter</option>
-          <option value="grayscale(100%)">Grayscale</option>
-          <option value="sepia(100%)">Sepia</option>
-          <option value="brightness(120%)">Bright</option>
-          <option value="contrast(150%)">High Contrast</option>
-
-          <option value="polaroid">📸 Polaroid</option>
-          <option value="filmy90s">🎞 90s Filmy</option>
-          <option value="xp">💻 Windows XP</option>
-          <option value="softpink">🎀 Soft Pink</option>
-        </select>
-      </div>
-
-      <div id="photos"></div>
-      <div id="viewer" class="viewer">
-        <span id="closeViewer">&times;</span>
-        <img id="viewerImage" />
+    <div class="video-container">
+      <div class="video-wrapper">
+        <video autoplay id="video" playsinline></video>
+        <img id="live-frame" src="" style="display: none;" alt="Frame Overlay">
       </div>
     </div>
 
-    <script src="script.js"></script>
-  </body>
+    <div class="controls">
+      <div class="input-group">
+        <input type="number" min="0" placeholder="Timer (sec)" id="timer" value="0" />
+      </div>
+      <button id="capture-btn"><b>Click to Slay 📸</b></button>
+    </div>
+
+    <div class="controls">
+      <select id="filter">
+        <option value="none">✨ Default Vibe</option>
+        <option value="grayscale(100%)">🌑 Grayscale</option>
+        <option value="sepia(100%)">🍂 Sepia</option>
+        <option value="brightness(120%)">☀️ Brighten</option>
+        <option value="contrast(150%)">🎭 High Contrast</option>
+        <option value="hue-rotate(90deg)">🌈 Retro Hue</option>
+
+        <option value="polaroid">🎞️ Polaroid Pro</option>
+        <option value="filmy90s">📽️ 90s Vintage</option>
+        <option value="xp">🖥️ Windows XP</option>
+        <option value="softpink">🎀 Pink Dream</option>
+      </select>
+      <button id="mirror-btn"
+        style="background: var(--glass-bg); color: var(--text-dark); border: 1px solid var(--glass-border);">🪞 Mirror
+        off</button>
+    </div>
+
+    <div id="photos"></div>
+
+    <div id="viewer" class="viewer">
+      <span id="closeViewer">&times;</span>
+      <img id="viewerImage" alt="Full Preview" />
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
 </html>
