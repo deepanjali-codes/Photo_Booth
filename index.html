@@ -28,14 +28,14 @@
       </div>
     </div>
 
-    <button id="continue-btn" onclick="goToCamera()">Continue to Slay 📸</button>
+    <button id="continue-btn" onclick="goToCamera()">Continue to Slay!</button>
 
     <script>
       let selectedFrame = null;
 
       function selectFrame(element, frame) {
         // Remove selected class from all frames
-        document.querySelectorAll('.frame').forEach(f => f.classList.remove('selected'));
+        document.querySelectorAll('.frame').forEach(f => f.classList.remove('nice choice!'));
         
         // Add selected class to clicked frame
         element.classList.add('selected');
