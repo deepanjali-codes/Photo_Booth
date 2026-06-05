@@ -50,7 +50,6 @@ A cute, minimal **web-based Photo Booth** that lets you click photos directly fr
 ✨ WHY THIS PROJECT IS A SLAY
 
 ✔ Perfect for beginners  
-✔ Uses real browser APIs  
 ✔ No libraries = full control  
 ✔ Great portfolio mini project  
 ✔ Easy to upgrade with filters & effects  
