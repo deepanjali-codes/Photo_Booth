@@ -9,48 +9,46 @@ const closeViewer = document.getElementById("closeViewer");
 const flashOverlay = document.getElementById("flash-overlay");
 const mirrorBtn = document.getElementById("mirror-btn");
 const liveFrame = document.getElementById("live-frame");
+const statusChip = document.getElementById("status-chip");
 
-let isMirrored = false; // Default to natural camera view
-mirrorBtn.textContent = "🪞 Mirror off";
-mirrorBtn.style.background = "var(--glass-bg)";
+let isMirrored = false;
+let stream = null;
 
-// Load and display live frame overlay
-const savedFrameSrc = localStorage.getItem("selectedFrame");
-if (savedFrameSrc && liveFrame) {
-  liveFrame.src = savedFrameSrc;
-  liveFrame.style.display = "block";
-  liveFrame.style.objectFit = "cover"; // To ensure the frame covers exactly like the capture does
+function setStatus(message) {
+  if (statusChip) {
+    statusChip.textContent = message;
+  }
 }
 
-
-// Initialize camera
-navigator.mediaDevices
-  .getUserMedia({
-    video: { width: 1280, height: 720 },
-  })
-  .then((stream) => {
-    video.srcObject = stream;
-    video.play();
-  })
-  .catch(() => {
-    alert("Camera access denied. Please enable it to use the Photo Booth! 💖");
-  });
-
-// Handle Mirror Toggle
-mirrorBtn.addEventListener("click", () => {
-  isMirrored = !isMirrored;
-  // Always keep rotation to fix upside-down camera, toggle horizontal flip on top
+function setVideoTransform() {
+  if (!video) return;
   video.style.transform = isMirrored ? "rotate(180deg) scaleX(-1)" : "rotate(180deg)";
-  mirrorBtn.textContent = isMirrored ? "🪞 Mirror on" : "🪞 Mirror off";
-  mirrorBtn.style.background = isMirrored ? "var(--primary-pink)" : "var(--glass-bg)";
-});
+  video.style.transformOrigin = "center center";
 
-// Update preview filter
-filterSelect.addEventListener("change", () => {
+  if (mirrorBtn) {
+    mirrorBtn.classList.toggle("active", isMirrored);
+    mirrorBtn.textContent = isMirrored ? "🪞 Mirror on" : "🪞 Mirror off";
+    mirrorBtn.style.background = isMirrored ? "var(--primary-pink)" : "var(--glass-bg)";
+    mirrorBtn.style.color = isMirrored ? "#fff" : "var(--xp-text)";
+  }
+}
+
+function syncLiveFrame() {
+  const savedFrameSrc = localStorage.getItem("selectedFrame");
+  if (savedFrameSrc && liveFrame) {
+    liveFrame.src = savedFrameSrc;
+    liveFrame.style.display = "block";
+    liveFrame.style.objectFit = "cover";
+    liveFrame.style.opacity = "0.98";
+  } else if (liveFrame) {
+    liveFrame.style.display = "none";
+  }
+}
+
+function updatePreviewFilter() {
   const value = filterSelect.value;
-  // Special handling for custom filter presets
   if (["polaroid", "filmy90s", "xp", "softpink"].includes(value)) {
-    video.style.filter = "none"; // We apply these via canvas logic later, but for preview we can approximate
+    video.style.filter = "none";
     if (value === "polaroid") video.style.filter = "sepia(40%) contrast(110%) brightness(110%)";
     if (value === "filmy90s") video.style.filter = "sepia(70%) contrast(130%) brightness(95%)";
     if (value === "xp") video.style.filter = "contrast(120%) saturate(120%) brightness(105%)";
@@ -58,9 +56,44 @@ filterSelect.addEventListener("change", () => {
   } else {
     video.style.filter = value;
   }
+}
+
+syncLiveFrame();
+setVideoTransform();
+setStatus("Camera is warming up…");
+
+navigator.mediaDevices
+  .getUserMedia({
+    video: {
+      facingMode: "user",
+      width: { ideal: 1280 },
+      height: { ideal: 720 },
+    },
+    audio: false,
+  })
+  .then((mediaStream) => {
+    stream = mediaStream;
+    video.srcObject = mediaStream;
+    video.play();
+    setStatus("Camera ready — pick a filter and strike a pose.");
+  })
+  .catch(() => {
+    setStatus("Camera access was blocked. Please allow it to continue.");
+    alert("Camera access denied. Please enable it to use the Photo Booth! 💖");
+  });
+
+mirrorBtn.addEventListener("click", () => {
+  isMirrored = !isMirrored;
+  setVideoTransform();
+  setStatus(isMirrored ? "Mirror on — your preview flips naturally." : "Mirror off — the preview is back to normal.");
 });
 
-// Capture Photo with Timer logic
+filterSelect.addEventListener("change", () => {
+  updatePreviewFilter();
+  const label = filterSelect.options[filterSelect.selectedIndex].text;
+  setStatus(`Filter set to ${label}`);
+});
+
 captureBtn.addEventListener("click", () => {
   let countdown = parseInt(timerInput.value) || 0;
 
@@ -85,11 +118,10 @@ captureBtn.addEventListener("click", () => {
 });
 
 function triggerCapture() {
-  // Flash effect
   flashOverlay.classList.remove("active");
-  void flashOverlay.offsetWidth; // Trigger reflow
+  void flashOverlay.offsetWidth;
   flashOverlay.classList.add("active");
-
+  setStatus("Snapping your moment…");
   capturePhoto();
 }
 
@@ -98,44 +130,42 @@ function capturePhoto() {
 
   const canvas = document.createElement("canvas");
   const context = canvas.getContext("2d");
-
-  // Output size (we want high quality)
   const width = video.videoWidth;
   const height = video.videoHeight;
+
   canvas.width = width;
   canvas.height = height;
 
-  // Handle mirroring for the capture
+  context.save();
+  context.translate(width / 2, height / 2);
+  context.rotate(Math.PI);
   if (isMirrored) {
-    context.translate(width, 0);
     context.scale(-1, 1);
   }
+  context.translate(-width / 2, -height / 2);
 
-  // Apply Filter
   const selectedFilter = filterSelect.value;
   applyFilter(context, width, height, selectedFilter);
+  context.restore();
 
-  // Reset transformation for frame drawing
-  if (isMirrored) {
-    context.setTransform(1, 0, 0, 1, 0, 0);
-  }
-
-  // Load and Draw Frame
   const frameSrc = localStorage.getItem("selectedFrame");
   if (frameSrc) {
     const frameImg = new Image();
     frameImg.onload = function () {
-      // Calculate aspect ratio to fit frame
       const frameRatio = frameImg.width / frameImg.height;
       const canvasRatio = width / height;
+      let drawWidth;
+      let drawHeight;
 
-      let drawWidth, drawHeight;
+      const maxWidth = width * 0.9;
+      const maxHeight = height * 0.9;
+
       if (canvasRatio > frameRatio) {
-        drawWidth = width;
-        drawHeight = width / frameRatio;
+        drawHeight = maxHeight;
+        drawWidth = maxHeight * frameRatio;
       } else {
-        drawHeight = height;
-        drawWidth = height * frameRatio;
+        drawWidth = maxWidth;
+        drawHeight = maxWidth / frameRatio;
       }
 
       const x = (width - drawWidth) / 2;
@@ -173,7 +203,7 @@ function applyFilter(context, width, height, type) {
     context.fillStyle = "rgba(255, 182, 193, 0.25)";
     context.fillRect(0, 0, width, height);
   } else {
-    context.filter = type;
+    context.filter = type === "none" ? "none" : type;
     context.drawImage(video, 0, 0, width, height);
   }
 
@@ -206,19 +236,25 @@ function saveToGallery(canvas) {
     link.href = dataURL;
     link.download = `slay_${Date.now()}.png`;
     link.click();
+    setStatus("Photo saved — your gallery just got a glow-up.");
   };
 
   actionsDiv.appendChild(viewBtn);
   actionsDiv.appendChild(saveBtn);
   photoDiv.appendChild(img);
   photoDiv.appendChild(actionsDiv);
-
-  // Add to start of gallery
   photosContainer.insertBefore(photoDiv, photosContainer.firstChild);
+  setStatus("Photo added to your gallery — beautiful work.");
 }
 
-// Global UI controls
 closeViewer.onclick = () => (viewer.style.display = "none");
 viewer.onclick = (e) => {
   if (e.target === viewer) viewer.style.display = "none";
 };
+
+document.addEventListener("pointermove", (event) => {
+  const x = (event.clientX / window.innerWidth) * 100;
+  const y = (event.clientY / window.innerHeight) * 100;
+  document.documentElement.style.setProperty("--mouse-x", `${x}%`);
+  document.documentElement.style.setProperty("--mouse-y", `${y}%`);
+});

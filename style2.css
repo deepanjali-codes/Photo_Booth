@@ -17,8 +17,13 @@
 body {
   margin: 0;
   padding: 40px 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: radial-gradient(circle at top left, #f7fbff 0%, #cad9ff 40%, #a8c2ff 100%);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(
+    circle at top left,
+    #f7fbff 0%,
+    #cad9ff 40%,
+    #a8c2ff 100%
+  );
   color: var(--xp-text);
   min-height: 100vh;
 }
@@ -43,7 +48,9 @@ h1 {
   background: linear-gradient(180deg, #f7faff 0%, #dee8ff 100%);
   border: 3px solid var(--xp-border);
   border-radius: 18px;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), var(--xp-shadow);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    var(--xp-shadow);
 }
 
 .frame {
@@ -55,21 +62,33 @@ h1 {
   border: 2px solid #b9cbff;
   border-radius: 16px;
   background: linear-gradient(180deg, #ffffff 0%, #dce7ff 100%);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 6px 0 rgba(67, 104, 189, 0.1);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    0 6px 0 rgba(67, 104, 189, 0.1);
   cursor: pointer;
-  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
   overflow: hidden;
 }
 
 .frame:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.01);
   border-color: var(--xp-border-strong);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 10px 20px rgba(43, 74, 151, 0.14);
 }
 
 .frame.selected {
   border-color: var(--xp-border-strong);
   background: linear-gradient(180deg, #edf4ff 0%, #c5d6ff 100%);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 8px 0 rgba(43, 74, 151, 0.14);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 8px 0 rgba(43, 74, 151, 0.14);
+  transform: scale(1.01);
 }
 
 .frame img {
@@ -91,7 +110,10 @@ button {
   font-weight: 700;
   cursor: pointer;
   box-shadow: 0 5px 0 rgba(90, 123, 191, 0.24);
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 button:hover {
