@@ -22,7 +22,7 @@ function setStatus(message) {
 
 function setVideoTransform() {
   if (!video) return;
-  video.style.transform = isMirrored ? "rotate(180deg) scaleX(-1)" : "rotate(180deg)";
+  video.style.transform = isMirrored ? "scaleX(-1)" : "scaleX(1)";
   video.style.transformOrigin = "center center";
 
   if (mirrorBtn) {
@@ -136,75 +136,137 @@ function capturePhoto() {
   canvas.width = width;
   canvas.height = height;
 
-  context.save();
-  context.translate(width / 2, height / 2);
-  context.rotate(Math.PI);
-  if (isMirrored) {
-    context.scale(-1, 1);
-  }
-  context.translate(-width / 2, -height / 2);
-
-  const selectedFilter = filterSelect.value;
-  applyFilter(context, width, height, selectedFilter);
-  context.restore();
-
   const frameSrc = localStorage.getItem("selectedFrame");
+
   if (frameSrc) {
     const frameImg = new Image();
     frameImg.onload = function () {
-      const frameRatio = frameImg.width / frameImg.height;
-      const canvasRatio = width / height;
-      let drawWidth;
-      let drawHeight;
+      const frameRect = getFrameContentRect(frameImg, width, height);
 
-      const maxWidth = width * 0.9;
-      const maxHeight = height * 0.9;
-
-      if (canvasRatio > frameRatio) {
-        drawHeight = maxHeight;
-        drawWidth = maxHeight * frameRatio;
-      } else {
-        drawWidth = maxWidth;
-        drawHeight = maxWidth / frameRatio;
+      context.save();
+      context.translate(width / 2, height / 2);
+      if (isMirrored) {
+        context.scale(-1, 1);
       }
+      context.translate(-width / 2, -height / 2);
+      const selectedFilter = filterSelect.value;
+      applyFilter(context, width, height, selectedFilter, frameRect);
+      context.restore();
 
-      const x = (width - drawWidth) / 2;
-      const y = (height - drawHeight) / 2;
-
-      context.drawImage(frameImg, x, y, drawWidth, drawHeight);
+      context.drawImage(frameImg, 0, 0, width, height);
       saveToGallery(canvas);
     };
     frameImg.onerror = () => saveToGallery(canvas);
     frameImg.src = frameSrc;
   } else {
+    context.save();
+    context.translate(width / 2, height / 2);
+    if (isMirrored) {
+      context.scale(-1, 1);
+    }
+    context.translate(-width / 2, -height / 2);
+    const selectedFilter = filterSelect.value;
+    applyFilter(context, width, height, selectedFilter, null);
+    context.restore();
     saveToGallery(canvas);
   }
 }
 
-function applyFilter(context, width, height, type) {
+function getFrameContentRect(frameImg, width, height) {
+  const tempCanvas = document.createElement("canvas");
+  tempCanvas.width = frameImg.width;
+  tempCanvas.height = frameImg.height;
+  const tempContext = tempCanvas.getContext("2d");
+  tempContext.drawImage(frameImg, 0, 0);
+
+  const data = tempContext.getImageData(0, 0, tempCanvas.width, tempCanvas.height).data;
+  let minX = tempCanvas.width;
+  let maxX = 0;
+  let minY = tempCanvas.height;
+  let maxY = 0;
+
+  for (let y = 0; y < tempCanvas.height; y += 1) {
+    for (let x = 0; x < tempCanvas.width; x += 1) {
+      const alpha = data[(y * tempCanvas.width + x) * 4 + 3];
+      if (alpha > 0) {
+        minX = Math.min(minX, x);
+        maxX = Math.max(maxX, x);
+        minY = Math.min(minY, y);
+        maxY = Math.max(maxY, y);
+      }
+    }
+  }
+
+  if (maxX <= minX || maxY <= minY) {
+    return {
+      x: width * 0.08,
+      y: height * 0.08,
+      width: width * 0.84,
+      height: height * 0.84,
+    };
+  }
+
+  const padding = Math.max(8, Math.round(Math.min(frameImg.width, frameImg.height) * 0.04));
+  const sourceRect = {
+    x: minX + padding,
+    y: minY + padding,
+    width: Math.max(1, maxX - minX - padding * 2),
+    height: Math.max(1, maxY - minY - padding * 2),
+  };
+
+  const scale = Math.min(width / frameImg.width, height / frameImg.height);
+
+  return {
+    x: sourceRect.x * scale,
+    y: sourceRect.y * scale,
+    width: sourceRect.width * scale,
+    height: sourceRect.height * scale,
+  };
+}
+
+function applyFilter(context, width, height, type, frameRect) {
   context.save();
+
+  const sourceAspect = width / height;
+  let drawWidth = width;
+  let drawHeight = height;
+  let drawX = 0;
+  let drawY = 0;
+
+  if (frameRect) {
+    const targetAspect = frameRect.width / frameRect.height;
+    if (sourceAspect > targetAspect) {
+      drawHeight = frameRect.height;
+      drawWidth = frameRect.height * sourceAspect;
+    } else {
+      drawWidth = frameRect.width;
+      drawHeight = frameRect.width / sourceAspect;
+    }
+    drawX = frameRect.x + (frameRect.width - drawWidth) / 2;
+    drawY = frameRect.y + (frameRect.height - drawHeight) / 2;
+  }
 
   if (type === "polaroid") {
     context.filter = "sepia(40%) contrast(110%) brightness(110%)";
-    context.drawImage(video, 0, 0, width, height);
+    context.drawImage(video, 0, 0, width, height, drawX, drawY, drawWidth, drawHeight);
     context.fillStyle = "rgba(255, 248, 220, 0.15)";
     context.fillRect(0, 0, width, height);
   } else if (type === "filmy90s") {
     context.filter = "sepia(70%) contrast(130%) brightness(95%)";
-    context.drawImage(video, 0, 0, width, height);
+    context.drawImage(video, 0, 0, width, height, drawX, drawY, drawWidth, drawHeight);
     context.fillStyle = "rgba(255, 200, 150, 0.2)";
     context.fillRect(0, 0, width, height);
   } else if (type === "xp") {
     context.filter = "contrast(120%) saturate(120%) brightness(105%)";
-    context.drawImage(video, 0, 0, width, height);
+    context.drawImage(video, 0, 0, width, height, drawX, drawY, drawWidth, drawHeight);
   } else if (type === "softpink") {
     context.filter = "brightness(105%) hue-rotate(-10deg) saturate(110%)";
-    context.drawImage(video, 0, 0, width, height);
+    context.drawImage(video, 0, 0, width, height, drawX, drawY, drawWidth, drawHeight);
     context.fillStyle = "rgba(255, 182, 193, 0.25)";
     context.fillRect(0, 0, width, height);
   } else {
     context.filter = type === "none" ? "none" : type;
-    context.drawImage(video, 0, 0, width, height);
+    context.drawImage(video, 0, 0, width, height, drawX, drawY, drawWidth, drawHeight);
   }
 
   context.restore();
